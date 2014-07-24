@@ -8,3 +8,81 @@ function countWords(sentence) {
 	return total + 1;
 };
 
+function makeAdder(adder) {
+	return function (secondAdder) {
+		return adder + secondAdder;
+	}
+}
+
+
+
+function forEach() {
+
+}
+
+
+
+function map() {
+
+}
+
+
+
+function filter() {
+
+}
+
+
+
+function contains() {
+
+}
+
+
+
+function reduce() {
+
+}
+
+
+
+function sum() {
+
+}
+
+
+
+function every() {
+
+}
+
+
+
+function any() {
+
+}
+ 
+
+
+function once() {
+
+}
+
+
+
+function newFunction() {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
