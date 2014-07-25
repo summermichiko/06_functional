@@ -14,7 +14,11 @@ function makeAdder(adder) {
 	}
 };
 
-//forEach function (test 4)
+
+function forEach(array, iteratingFunc) {
+
+};
+
 
 function map() {
 	var numbers = [1,2,3];
@@ -54,6 +58,57 @@ function contains(a,b) {
 		}
 	}
 };
+
+//tests 11, 12, 13 (number 12 not passing)
+function reduce(array, startPoint, combiningFunc) {
+    var current = null;
+    for(var i = startPoint; i<array.length; i++){
+        current = combiningFunc(current, array[i]);
+    }
+    return current;
+};
+
+var countWordsInReduce = function() {
+    var newString = this.join(" ");
+    return newString.split(" ").length;
+};
+
+function sum(array) {
+    return reduce(array, 0, function(a, b) {return a+b});
+};
+
+//every function
+
+function any(array, func){
+  	if(func === undefined){
+   		var func = function(item){
+    		return item;
+  		};
+	};
+ 	for(var i=0; i<array.length; i++){
+    	if(func(array[i])){
+      		return true;
+    	}
+  	};
+  	return false;
+};
+
+function once() { //how to incorporate increment()?
+    var num = 0;
+		do {
+			num++;
+		}
+		while (num > 2);
+        return num;
+};
+
+function wrapper() {
+
+};
+
+
+
+
 
 
 
