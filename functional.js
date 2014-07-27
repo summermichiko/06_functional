@@ -16,18 +16,15 @@ function makeAdder(adder) { //2,3
 };
 
 
-
-
 var runMeThreeTimes = function(number){
-	return number;
+		return number + 1;
 };
+
 var myArray = [1, 2, 3]; //4 - not passing
 
 var forEach = function (myArray, runMeThreeTimes) {
+	spyOn(myArray, runMeThreeTimes);
 };
-
-
-
 
 
 
