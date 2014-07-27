@@ -1,4 +1,4 @@
-function countWords(sentence) {
+function countWords(sentence) { //1
 	var total = 0;
 	for (var i = 0; i < sentence.length; i++) {
 		if (sentence[i] == " ") {
@@ -8,33 +8,45 @@ function countWords(sentence) {
 	return total + 1;
 };
 
-function makeAdder(adder) {
+
+function makeAdder(adder) { //2,3
 	return function (secondAdder) {
 		return adder + secondAdder;
 	}
 };
 
 
-function forEach(array, iteratingFunc) {
 
+
+var runMeThreeTimes = function(number){
+	return number;
+};
+var myArray = [1, 2, 3]; //4 - not passing
+
+var forEach = function (myArray, runMeThreeTimes) {
 };
 
 
-function map() {
+
+
+
+
+
+
+function map() { //5, 6 (6 not passing)
 	var numbers = [1,2,3];
 	var doubles = numbers.map(function(numbers){
 		return numbers * 2;
-
 	});
 	return doubles;
-
 	var triples = numbers.map(function(numbers){
 		return numbers * 3;
 	});
 	return triples; //failing to return this value (test 6)
 };
 
-function filter() {
+
+function filter() {//7, 8 (8 not passing)
     var numbers = [1, 2, 3, 4, 5, 6, 7, 8];
     var even_filter = []; 
 	var odd_filter = [];
@@ -49,7 +61,8 @@ function filter() {
 	return odd_filter; //failing to return this value (test 8)
 };
 
-function contains(a,b) {
+
+function contains(a,b) { //9, 10 (9 not passing)
 	for(i = 0; i < a.length; i++){
 		if(a[i] === b) {
 			return true;
@@ -59,7 +72,8 @@ function contains(a,b) {
 	}
 };
 
-//tests 11, 12, 13 (number 12 not passing)
+
+//tests 11, 12, 13 (12 not passing)
 function reduce(array, startPoint, combiningFunc) {
     var current = null;
     for(var i = startPoint; i<array.length; i++){
@@ -67,19 +81,26 @@ function reduce(array, startPoint, combiningFunc) {
     }
     return current;
 };
-
 var countWordsInReduce = function() {
     var newString = this.join(" ");
     return newString.split(" ").length;
 };
-
 function sum(array) {
-    return reduce(array, 0, function(a, b) {return a+b});
+    return reduce(array, 0, function(a, b) {
+    	return a+b;
+    });
 };
 
-//every function
 
-function any(array, func){
+//every function
+function every() {
+
+};
+
+//14 - 18 not passing
+
+
+function any(array, func){ //19, 20, 21, 22, 23
   	if(func === undefined){
    		var func = function(item){
     		return item;
@@ -93,8 +114,8 @@ function any(array, func){
   	return false;
 };
 
-function once() { //how to incorporate increment()?
-    var num = 0;
+function once() { //24 not passing
+    var num = 0; //how to incorporate increment()?
 		do {
 			num++;
 		}
@@ -102,7 +123,7 @@ function once() { //how to incorporate increment()?
         return num;
 };
 
-function wrapper() {
+function wrapper() { //25 not passing
 
 };
 
