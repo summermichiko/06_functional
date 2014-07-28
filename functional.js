@@ -16,18 +16,13 @@ function makeAdder(adder) { //2,3
 };
 
 
-var runMeThreeTimes = function(number){
+var runMeThreeTimes = function(number){ //4 - not passing
 		return number + 1;
 };
-
-var myArray = [1, 2, 3]; //4 - not passing
-
+var myArray = [1, 2, 3]; 
 var forEach = function (myArray, runMeThreeTimes) {
 	spyOn(myArray, runMeThreeTimes);
 };
-
-
-
 
 
 function map() { //5, 6 (6 not passing)
@@ -89,12 +84,9 @@ function sum(array) {
 };
 
 
-//every function
-function every() {
+function every() { //14 - 18 not passing
 
 };
-
-//14 - 18 not passing
 
 
 function any(array, func){ //19, 20, 21, 22, 23
@@ -111,7 +103,8 @@ function any(array, func){ //19, 20, 21, 22, 23
   	return false;
 };
 
-function once() { //24 not passing
+
+function once() { //24, first attempt
     var num = 0; //how to incorporate increment()?
 		do {
 			num++;
@@ -120,8 +113,20 @@ function once() { //24 not passing
         return num;
 };
 
-function wrapper() { //25 not passing
+var once = function (func) {
+	var ran = false;
+	return function () {
+		if (!ran) {func();}
+		ran = true;
+	};
+};
 
+
+function wrapper(func, wrapperFunc) { //25 not passing
+	return function(newFunction) {
+		//give it the block function
+		wrapperFunc(wrapper);
+	};
 };
 
 
