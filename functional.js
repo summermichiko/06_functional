@@ -1,102 +1,103 @@
-function countWords(sentence) {
+var countWords = function(sentence) {
   return sentence.split(" ").length;
-}
+}; //these are all function expressions and need semi-colons
   
-function makeAdder(num1) {
+var makeAdder = function(num1) {
   // this variable will be "closed upon" aka, it will be kept alive
   // num1 = 2 
-  var adderof2Function = function (num2) {
+  var adder = function (num2) {
     return num1+num2;
   };
-  return adderof2Function;
-}
+  return adder; //without the (), it's a reference to the function, this is returning the function itself
+  //return adder(); is very different, this is returning the value that this function returns
+};
 
-function forEach(array, funcRunOnEachElement) {
+var forEach = function(array, funcRunOnEachElement) {
   for (var i = 0; i < array.length; i++) {
     funcRunOnEachElement(array[i]);
   }
-}
+};
 
-function map(array, funcRunOnEachElement) {
+var map = function(array, funcRunOnEachElement) {
   var newMapArray = [];
   for(var i =0; i<array.length; i++){
     newMapArray.push(func(arr[i]))
   }
   return newMapArray;
-}
+};
 
-function filter(array, filter_func) {
+var filter = function(array, filter_func) {
   var returnArray = [];
   forEach(array, function(el) {
-    if (filter_func(el)) {
-      returnArray.push(el);
+    if (filter_func(el)) { //if that element is validated by the filter_func
+      returnArray.push(el); //push it into the array
     }
   });
   return returnArray;
-}
+};
 
-function contains(arrayOrObj, searchValue) {
+var contains = function(arrayOrObj, searchValue) {
   for (key in arrayOrObj) {
-    if (arrayOrObj.hasOwnProperty(key)) {
+    if (arrayOrObj.hasOwnProperty(key)) { //not necessary
       if (arrayOrObj[key] === searchValue) {
         return true;
       }
     }
   }
   return false;
-}
+};
 
-function reduce(array, startVal, interatingFunction) {
-  var currentVal = startVal;
+var reduce = function(array, startVal, interatingFunction) {
+  var currentVal = startVal; //this way we don't change the value of startVal
   
   forEach(array, function(num) {
     currentVal = interatingFunction(currentVal, num)
   });
   return currentVal;
-}
+};
 
-function countWordsInReduce(currentVal, wordsArray) {
+var countWordsInReduce = function(currentVal, wordsArray) {
   return currentVal + countWords(wordsArray);
-}
+};
 
-function sum(array) {
+var sum = function(array) {
   var addFunc = function(currVal, newVal) {
     return currVal + newVal;
   };
   return reduce(array, 0, addFunc);
-}
+};
 
 // cool version
-function every(array, iteratingFunction) {
+var every = function(array, iteratingFunction) {
   return reduce(array, true, function(currVal, newVal) {
     return currVal && iteratingFunction(newVal);
   });
-}
+};
 
 // clear version
-function every(array, iteratingFunction) {
+var every = function(array, iteratingFunction) {
   for(var i=0; i<array.length; i++) {
     if (!iteratingFunction(array[i])) {
       return false;
     }
   }
   return true;
-}
+};
 
 // cool version 2.0
-function any(array, iteratingFunction) {
+var any = function(array, iteratingFunction) {
   if (typeof iteratingFunction === "undefined") {
     iteratingFunction = function(item) {
       return item;
     }
-  }
+  };
   return reduce(array, false, function(currVal, newVal) {
     var returnBool = currVal || iteratingFunction(newVal);
     return returnBool;
   });
-}
+};
 
-function once(inputFunc) {
+var once = function(inputFunc) {
   var calledAlready = false;
   return function() {
     if (!calledAlready) {
@@ -104,14 +105,14 @@ function once(inputFunc) {
       calledAlready = true;
     }
   };
-}
+};
 
 
-function wrapper(codeBlockFunction, blockWrapFunc) {
+var wrapper = function(codeBlockFunction, blockWrapFunc) {
   return function() {
     return blockWrapFunc(codeBlockFunction);
   }
-}
+};
 
 
 

@@ -21,7 +21,6 @@ describe("makeAdder", function() {
 
 
 // functions that iterate over collections and perform some function
-
 // the most basic, do something for each element of the collection
 describe("forEach", function() {
   it("takes an array and an iterating function and runs the function for each element of the array", function() {
